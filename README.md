@@ -6,7 +6,7 @@ I've only tested it in Firefox and Chrome, but it should work in other browsers.
 
 Chrome - download [User JavaScript and CSS extension](https://chrome.google.com/webstore/detail/nbhcbdghjpllgmfilhnhkllmkecfmpld), go to [Wocabee](https://wocabee.app/), click on the extension and then on Add new button. Copy and paste the code from code.js file to the JS text area, click on Save, and then close the tab.
 
-Firefox - download [javascript extenstion](https://addons.mozilla.org/en-US/firefox/addon/javascript/), go to [Wocabee](https://wocabee.app/), click on the extension, copy and paste the code from code.js file into the window, and then reload the page.
+Firefox - download [javascript addon](https://addons.mozilla.org/en-US/firefox/addon/javascript/), go to [Wocabee](https://wocabee.app/), click on the extension, copy and paste the code from code.js file into the window, and then reload the page.
 
 ## Usage
 
