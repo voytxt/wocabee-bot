@@ -61,7 +61,6 @@ const hGetTranslation = (word) => {
 // ---------
 //  BUTTONS
 // ---------
-
 const hStartStop = (delay = 5000) => {
   const hButton = get('hStartButton');
   if (hRunning) {
@@ -133,7 +132,7 @@ const hTranslate = () => {
           [...words2.getElementsByClassName('fp_a')].map((word2) => {
             if (word1.getAttribute('w_id') === word2.getAttribute('w_id')) {
               word1.classList = 'fp_q btn btn-block btn-lg btn-warning';
-              word2.classList = 'fp_q btn btn-block btn-lg btn-warning';
+              word2.classList = 'fp_a btn btn-block btn-lg btn-warning';
             }
           });
         });
@@ -162,4 +161,3 @@ const hLogJSON = () => {
 const hHideButtons = () => {
   get('hButtons').style.display = 'none';
 };
-
