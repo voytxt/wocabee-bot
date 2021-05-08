@@ -54,7 +54,7 @@ const hGetTranslation = (word) => {
     else if (word === word2) translation = word1;
   });
 
-  if (translation === null) hError('Could not find a translation!');
+  if (translation === null) hError(`Could not find a translation for ${word}!`);
   return translation;
 };
 
@@ -103,7 +103,7 @@ const hAutoFocus = () => {
 
 const hTranslate = () => {
   [
-    ['input', 'translateFallingWordAnswer', 'tfw_word', 'translateFallingWordAnswer', 'translateFallingWordSubmitBtn'],
+    ['input', 'translateFallingWord', 'tfw_word', 'translateFallingWordAnswer', 'translateFallingWordSubmitBtn'],
     ['input', 'translateWord', 'q_word', 'translateWordAnswer', 'translateWordSubmitBtn'],
     ['choose', 'completeWord', 'completeWordQuestion'],
     ['choose', 'chooseWord', 'ch_word'],
