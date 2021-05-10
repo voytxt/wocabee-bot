@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 5rem;
+  font-weight: 200;
+}
+
+div {
+  font-size: 2rem;
+}
+
+a {
+  font-size: 2rem;
+  width: 5rem;
+  height: 3rem;
+  color: blue;
+  width: max-content;
+}
