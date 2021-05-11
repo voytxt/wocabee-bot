@@ -85,17 +85,17 @@ const hGrind = (delay = 5000) => {
 
     answerBox.value = translation;
 
-    hSubmitButton.disabled = false;
-    hSubmitButton.click();
+    submitButton.disabled = false;
+    submitButton.click();
   };
 
   if (hGrindRunning) {
     clearInterval(hGrindInterval);
-    button.innerText = 'Auto Translate: OFF';
+    button.innerText = 'Auto Grind: OFF';
     button.classList = 'btn btn-danger';
   } else {
     hGrindInterval = setInterval(func, delay);
-    button.innerText = 'Auto Translate: ON';
+    button.innerText = 'Auto Grind: ON';
     button.classList = 'btn btn-success';
   }
 
