@@ -3,7 +3,7 @@
 let hGrindInterval;
 let hGrindRunning = false;
 let hAutoFocusInterval;
-let hAutoFocusRunning = true;
+let hAutoFocusRunning = false;
 
 const currentURL = location.toString();
 if (currentURL.includes('/package_local') || currentURL.includes('/game')) {
@@ -12,7 +12,7 @@ if (currentURL.includes('/package_local') || currentURL.includes('/game')) {
     /* html */
     `<div id="hButtons" style="display: flex; flex-flow: wrap; justify-content: center; margin-bottom: 1.5rem; gap: 0.5rem;">
       <button class="btn btn-danger"    id="hGrind"           onclick="hGrind()"       >Auto Grind: OFF</button>
-      <button class="btn btn-success"   id="hAutoFocusButton" onclick="hAutoFocus()"   >Auto Focus: ON</button>
+      <button class="btn btn-danger"    id="hAutoFocusButton" onclick="hAutoFocus()"   >Auto Focus: OFF</button>
       <div style="width: 100%;"></div>
       <button class="btn btn-primary"   id="hTranslateButton" onclick="hSolve()"       >Solve the current task</button>
       <button class="btn btn-warning"   id="hLogButton"       onclick="hLog()"         >Log Table</button>
