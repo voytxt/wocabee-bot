@@ -106,7 +106,7 @@ const hAutoFocus = (delay = 100) => {
   const button = hGet('hAutoFocusButton');
 
   const func = () => {
-    const answerBoxIds = ['translateFallingWordAnswer', 'translateWordAnswer', 'missingWordAnswer'];
+    const answerBoxIds = ['translateFallingWordAnswer', 'translateWordAnswer', 'missingWordAnswer', 'transcribeAnswerWord'];
     try {
       answerBoxIds.forEach((id) => {
         hGet(id, true).focus();
