@@ -2,6 +2,7 @@
 
 let hGrindInterval;
 let hGrindRunning = false;
+let hShouldAutoFail = false;
 let hAutoFocusInterval;
 let hAutoFocusRunning = false;
 
@@ -12,6 +13,7 @@ if (currentURL.includes('/package_local') || currentURL.includes('/game')) {
     /* html */
     `<div id="hButtons" style="display: flex; flex-flow: wrap; justify-content: center; margin-bottom: 1.5rem; gap: 0.5rem;">
       <button class="btn btn-danger"    id="hGrind"           onclick="hGrind()"       >Auto Grind: OFF</button>
+      <button class="btn btn-danger"    id="hAutoFail"        onclick="hAutoFail()" style="display: none">Auto Fail: OFF</button>
       <button class="btn btn-danger"    id="hAutoFocusButton" onclick="hAutoFocus()"   >Auto Focus: OFF</button>
       <div style="width: 100%;"></div>
       <button class="btn btn-primary"   id="hTranslateButton" onclick="hSolve()"       >Solve the current task</button>
@@ -77,6 +79,8 @@ const hGetTranslationFor = (word, canBeNull = false) => {
 const hGrind = (delay = 5000) => {
   const button = hGet('hGrind');
 
+  hGet('hAutoFail').style.display = hGet('hAutoFail').style.display === 'none' ? 'block' : 'none';
+
   const func = () => {
     let wordDisplayed = hGet('tfw_word').innerText;
     let answerBox, submitButton;
@@ -92,7 +96,7 @@ const hGrind = (delay = 5000) => {
 
     const translation = hGetTranslationFor(wordDisplayed);
 
-    answerBox.value = translation;
+    if (+hGet('wp_counter').innerText < 80 || !hShouldAutoFail) answerBox.value = translation;
 
     submitButton.disabled = false;
     submitButton.click();
@@ -115,7 +119,13 @@ const hAutoFocus = (delay = 100) => {
   const button = hGet('hAutoFocusButton');
 
   const func = () => {
-    const answerBoxIds = ['translateFallingWordAnswer', 'translateWordAnswer', 'missingWordAnswer', 'transcribeAnswerWord'];
+    const answerBoxIds = [
+      'translateFallingWordAnswer',
+      'translateWordAnswer',
+      'missingWordAnswer',
+      'transcribeAnswerWord',
+    ];
+
     try {
       answerBoxIds.forEach((id) => {
         hGet(id, true).focus();
@@ -136,6 +146,19 @@ const hAutoFocus = (delay = 100) => {
   }
 
   hAutoFocusRunning = !hAutoFocusRunning;
+};
+
+const hAutoFail = () => {
+  const button = hGet('hAutoFail');
+  if (hShouldAutoFail) {
+    button.classList = 'btn btn-danger';
+    button.innerText = 'Auto Fail: OFF';
+  } else {
+    button.innerText = 'Auto Fail: ON';
+    button.classList = 'btn btn-success';
+  }
+
+  hShouldAutoFail = !hShouldAutoFail;
 };
 
 const hSolve = () => {

@@ -21,7 +21,8 @@ I've only tested it in Firefox and Chrome, but it should work in other browsers 
 
 When you go to [Wocabee App](https://wocabee.app/app/), and select some package to do, there should be (hopefully) some buttons at the top.
 
-- **Auto Grind** - grind WocaPoints in the "Practice" section
+- **Auto Grind** - grind WocaPoints in the "Practice" section (only tasks with 2 WocaPoints)
+- **Auto Fail** - fail every 80 tasks to get the most out of bonuses (only when auto-grinding)
 - **Auto Focus** - automatically focus the answer box, so instead of needing to click it, you can type right away
 - **Solve the current task** - show / input the correct answer (without submitting it)
 - **Log Table** - log a simple table with the translations to the console
