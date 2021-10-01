@@ -57,7 +57,7 @@ const hGetTranslations = () => {
   return translations;
 };
 
-const hGetTranslationFor = (word) => {
+const hGetTranslationFor = (word, canBeNull = false) => {
   let translations = hGetTranslations();
   let translation = null;
 
@@ -66,7 +66,7 @@ const hGetTranslationFor = (word) => {
     else if (word === word2) translation = word1;
   });
 
-  if (translation === null) hError(`Could not find a translation for ${word}!`);
+  if (translation === null && !canBeNull) hError(`Could not find a translation for ${word}!`);
 
   return translation;
 };
@@ -78,9 +78,18 @@ const hGrind = (delay = 5000) => {
   const button = hGet('hGrind');
 
   const func = () => {
-    const wordDisplayed = hGet('tfw_word').innerText;
-    const answerBox = hGet('translateFallingWordAnswer');
-    const submitButton = hGet('translateFallingWordSubmitBtn');
+    let wordDisplayed = hGet('tfw_word').innerText;
+    let answerBox, submitButton;
+
+    if (hGet('translateFallingWord').style.display === 'none') {
+      wordDisplayed = hGet('q_word').innerText;
+      answerBox = hGet('translateWordAnswer');
+      submitButton = hGet('translateWordSubmitBtn');
+    } else {
+      answerBox = hGet('translateFallingWordAnswer');
+      submitButton = hGet('translateFallingWordSubmitBtn');
+    }
+
     const translation = hGetTranslationFor(wordDisplayed);
 
     answerBox.value = translation;
