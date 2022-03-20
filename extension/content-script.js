@@ -76,7 +76,6 @@ function solveTask(taskType) {
   let question, translation;
 
   switch (taskType) {
-    // TODO: this one still doesn't work
     case 'addMissingWord': {
       question = getId('q_sentence');
       translation = getTranslation(question.innerText);
@@ -90,11 +89,8 @@ function solveTask(taskType) {
       });
 
       answer.value = wordToType.join('');
-      answer.focus();
+      answer.dispatchEvent(new KeyboardEvent('keydown'));
       sumbit.click();
-      isRunning = false;
-      // sumbit.style.display = '';
-      // submit.click();
       break;
     }
 
