@@ -6,7 +6,7 @@
   "content_scripts": [
     {
       "matches": ["https://*.wocabee.app/app/*"],
-      "js": ["content-script.js"]
+      "js": ["helper.js", "content-script.js"]
     }
   ]
 }
