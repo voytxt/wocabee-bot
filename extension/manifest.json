@@ -3,6 +3,9 @@
   "description": "Solve tasks on Wocabee automatically",
   "version": "0.1",
   "manifest_version": 3,
+  "icons": {
+    "48": "./assets/icon.png"
+  },
   "content_scripts": [
     {
       "matches": ["https://*.wocabee.app/app/*"],
