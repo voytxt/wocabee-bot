@@ -6,4 +6,4 @@
 
 ## [Website](https://wocabot.vercel.app/)
 
-## [Old version](https://github.com/vojta-dev/wocabee-bot/tree/new)
+## [Old version](https://github.com/vojta-dev/wocabee-bot/tree/old)
