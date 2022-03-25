@@ -1,6 +1,11 @@
 let isRunning = false;
 const translations = [];
 
+// used in test mode, because WocaBot tries to answer even though the new question hasn't appeared yet,
+// so it answers the old question which results in a lot of wrong answers...
+// this variable is used to check if the question has changed or not, so it knows when it can actually answer
+let previousWord = '';
+
 injectHTML();
 
 function main() {
@@ -46,7 +51,7 @@ function isThereATask() {
 }
 
 function updateTranslations() {
-  const localWords = getId('localWords');
+  const localWords = getId('localWords') ?? getId('testData');
 
   [...localWords.children].forEach((child) => {
     const word = child.getAttribute('word');
@@ -211,6 +216,15 @@ function solveTask(taskType) {
 
     case 'translateWord': {
       question = getId('q_word');
+
+      if (question.innerText === previousWord) {
+        info('Waiting for the question to change...');
+        startSearchingForTasks();
+        return;
+      } else {
+        previousWord = question.innerText;
+      }
+
       translation = getTranslation(question.innerText);
 
       const submit = getId('translateWordSubmitBtn');
@@ -247,7 +261,7 @@ function getVisibleTaskType() {
   const visibleTask = taskTypes.find((taskType) => {
     const taskElement = getId(taskType);
 
-    return taskElement.style.display !== 'none';
+    return taskElement !== null && taskElement.style.display !== 'none';
   });
 
   visibleTask === undefined ? info("Can't find any task (wait a bit)") : log('Identified task as', visibleTask);
