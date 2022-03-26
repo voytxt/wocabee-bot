@@ -1,3 +1,5 @@
+# WARNING: WocaBee can detect this bot, please don't use it unless you know what you're doing!
+
 # WocaBot
 
 ![WocaBot Logo](assets/logo.png)
