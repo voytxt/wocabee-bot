@@ -1,11 +1,7 @@
-# WARNING: WocaBee can detect this bot, please don't use it unless you know what you're doing!
+# WocaBot (discontinued)
 
-# WocaBot
+As of March 2022, WocaBot has been discontinued and no longer works.
+
+You are free to use the code as basis for your own bot if you give me credit.
 
 ![WocaBot Logo](assets/logo.png)
-
-## Solve WocaBee tasks automatically
-
-## [Website](https://wocabot.vercel.app/)
-
-## [Old version](https://github.com/vojta-dev/wocabee-bot/tree/old)
